@@ -3,5 +3,7 @@ export interface PasswordOptionsProps {
     uppercase: boolean,
     lowercase: boolean,
     numbers: boolean,
-    symbols: boolean
+    symbols: boolean,
+    bad: boolean,
+    doubtful: boolean,
 } 

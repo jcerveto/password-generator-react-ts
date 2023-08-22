@@ -4,6 +4,8 @@ const ALPH_LOWER = 'abcdefghijklmnopqrstuvwxyz';
 const ALPH_UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const NUMBERS = '0123456789';
 const SPECIAL_CHARS = '!@#$%^&*()_+-=[]{}|;:,.<>?';
+const BAD_CHARS = '"`~\\/';
+const DOUBTFUL_CHARS = 'il1Lo0O';
 
 
 /**
@@ -25,9 +27,6 @@ export function generatePassword(
             const index = Math.floor(Math.random() * alphabet.length);
             password += alphabet[index];
         }
-
-        console.log('alphabet: ' + alphabet);
-        console.log('password: ' + password);
 
     } while (
         (props.uppercase && !containsUppercase(password)) ||
@@ -76,9 +75,20 @@ export function containsSymbols(password: string): boolean {
     return false;
 }
 
+export function containsBadChars(password: string): boolean {
+    for (let i = 0; i < password.length; i++) {
+        if (BAD_CHARS.includes(password[i])) {
+            return true;
+        }
+    }
+    return false;
+}
+
+
 export function getAlphabet(options: PasswordOptionsProps): string {
     let alphabet = '';
 
+    // Add characters to alphabet based on options
     if (options.lowercase) {
         alphabet += ALPH_LOWER;
     }
@@ -92,5 +102,35 @@ export function getAlphabet(options: PasswordOptionsProps): string {
         alphabet += SPECIAL_CHARS;
     }
 
+    // Remove bad characters from alphabet
+    if (options.bad) {
+        alphabet = removeBadChars(alphabet);
+    }
+    if (options.doubtful) {
+        alphabet = removeDoubtfulChars(alphabet);
+    }
+
     return alphabet;
+}
+
+
+export function removeDoubtfulChars(password: string): string {
+    let newPassword = '';
+    for (let i = 0; i < password.length; i++) {
+        if (!DOUBTFUL_CHARS.includes(password[i])) {
+            newPassword += password[i];
+        }
+    }
+    return newPassword;
+}
+
+
+export function removeBadChars(password: string): string {
+    let newPassword = '';
+    for (let i = 0; i < password.length; i++) {
+        if (!BAD_CHARS.includes(password[i])) {
+            newPassword += password[i];
+        }
+    }
+    return newPassword;
 }

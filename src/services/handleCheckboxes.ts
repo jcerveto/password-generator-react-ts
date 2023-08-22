@@ -32,3 +32,17 @@ export const handleLength = (
 ): void => {
     setLength(currentLength);
 }
+
+export const handleBad = (
+    setBad: (newStatus: boolean) => void,
+    currentStatus: boolean
+): void => {
+    setBad(!currentStatus);
+}
+
+export const handleDoubtful = (
+    setDoubtful: (newStatus: boolean) => void,
+    currentStatus: boolean
+): void => {
+    setDoubtful(!currentStatus);
+}
