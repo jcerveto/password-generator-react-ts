@@ -7,6 +7,11 @@ export const NavigationMenu = ( { props }: { props: NavigationMenuProps } ) => {
             <strong>
                 Personaliza tu contraseña:
             </strong>
+            <button
+                onClick={props.refresh}
+            >
+                New Password
+            </button>
             <section>
                 <input 
                     type="checkbox"
@@ -57,8 +62,30 @@ export const NavigationMenu = ( { props }: { props: NavigationMenuProps } ) => {
                     value={props.length}
                     onChange={ (event) => props.handleLength(props.setLength, Number(event.target.value)) }
                 />
-
             </section>
+            <section>
+                <input
+                    type="checkbox"
+                    checked={props.bad}
+                    onChange={ () => props.handleBad(props.setBad, props.bad) }
+                />
+                <label>
+                    Bad
+                </label>
+                <input
+                    type="checkbox"
+                    checked={props.doubtful}
+                    onChange={ () => props.handleDoubtful(props.setDoubtful, props.doubtful) }
+                />
+                <label>
+                    Doubtful
+                </label>
+            </section>
+            <button
+                onClick={props.copyToClipboard}
+            >
+                Copy Password
+            </button>
         </nav>
     )
 }
