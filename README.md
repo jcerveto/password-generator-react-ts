@@ -1,7 +1,7 @@
 # Generador de contraseñas
 
 # Pruébalo aquí:
-[Link a la web en Github Pages. ]("https://jcerveto.github.io/password-generator-react-ts/")
+[Link a la web en Github Pages. ](https://jcerveto.github.io/password-generator-react-ts/)
 
 
 # Instrucciones de ejecución
