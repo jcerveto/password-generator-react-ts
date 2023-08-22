@@ -3,6 +3,6 @@ import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/password-generator-react-ts",
+  base: "https://jcerveto.github.io/password-generator-react-ts",
   plugins: [react()],
 })
