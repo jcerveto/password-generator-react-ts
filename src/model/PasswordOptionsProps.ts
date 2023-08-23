@@ -6,4 +6,5 @@ export interface PasswordOptionsProps {
     symbols: boolean,
     bad: boolean,
     doubtful: boolean,
+    avoidedChars: string,
 } 

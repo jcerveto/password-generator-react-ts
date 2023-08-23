@@ -12,6 +12,7 @@ import { AlphabetProps } from '../model/AlphabetProps';
 
 import * as Handles from "../services/handleCheckboxes";
 import * as Password from "../services/passwordGenerator";
+import * as Alphabets from "../services/Alphabets";
 
 
 export const Home = () => {
@@ -23,6 +24,7 @@ export const Home = () => {
     const [symbols, setSymbols] = useState<boolean>(true);
     const [bads, setBads] = useState<boolean>(false);
     const [doubtfuls, setDoubtfuls] = useState<boolean>(false);
+    const [avoidedChars, setAvoidedChars] = useState<string>("");
     const [error, setError] = useState<string|null>(null);
     const justCopiedToClipboard = useRef<boolean>(false);
     const [passwordOptionsProps, setPasswordOptionsProps] = useState<PasswordOptionsProps>({
@@ -33,6 +35,7 @@ export const Home = () => {
         symbols: true,
         bad: false,
         doubtful: false,
+        avoidedChars: '',
     });
     const previousPasswordOptionsProps = useRef<PasswordOptionsProps>(passwordOptionsProps);
 
@@ -95,10 +98,14 @@ export const Home = () => {
         doubtful: doubtfuls,
         setDoubtful: setDoubtfuls,
         handleDoubtful: Handles.handleDoubtful,
+
+        avoidedChars: '',
+        setAvoidedChars: setAvoidedChars,
+        handleAvoidedChars: Handles.handleAvoidedChars,
     };
 
     const alphabetProps: AlphabetProps = {
-        characters: "hola",
+        characters: Alphabets.getAll(),
     }
 
     useEffect(() => {
@@ -119,6 +126,7 @@ export const Home = () => {
             symbols: symbols,
             bad: bads,
             doubtful: doubtfuls,
+            avoidedChars: '',
         };
 
         if (! anyPropMarked(newProps)) {

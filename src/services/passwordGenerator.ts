@@ -1,11 +1,14 @@
 import { PasswordOptionsProps } from "../model/PasswordOptionsProps";
 
-const ALPH_LOWER = 'abcdefghijklmnopqrstuvwxyz';
-const ALPH_UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-const NUMBERS = '0123456789';
-const SPECIAL_CHARS = '!@#$%^&*()_+-=[]{}|;:,.<>?';
-const BAD_CHARS = '"`~\\/';
-const DOUBTFUL_CHARS = 'il1Lo0O';
+import {
+    ALPH_LOWER,
+    ALPH_UPPER,
+    NUMBERS,
+    SPECIAL_CHARS,
+    BAD_CHARS,
+    DOUBTFUL_CHARS,
+} from "./Alphabets";
+
 
 
 /**
@@ -84,6 +87,22 @@ export function containsBadChars(password: string): boolean {
     return false;
 }
 
+export function containsAvoideCahrs(password: string, avoidedChars: string): boolean {
+    try {
+        avoidedChars?.split('').forEach(char => {
+            if (password.includes(char)) {
+                return true;
+            }
+        });
+    }
+    catch (error: any) {
+        console.error("ERROR in containsAvoideCahrs: ", error);
+    }
+
+
+    return false;
+}
+
 
 export function getAlphabet(options: PasswordOptionsProps): string {
     let alphabet = '';
@@ -109,28 +128,44 @@ export function getAlphabet(options: PasswordOptionsProps): string {
     if (options.doubtful) {
         alphabet = removeDoubtfulChars(alphabet);
     }
+    if (options.avoidedChars) {
+        alphabet = removeAvoideCahrs(alphabet, options.avoidedChars);
+    }
+    
 
     return alphabet;
 }
 
 
 export function removeDoubtfulChars(password: string): string {
-    let newPassword = '';
+    let newAlphabet = '';
     for (let i = 0; i < password.length; i++) {
         if (!DOUBTFUL_CHARS.includes(password[i])) {
-            newPassword += password[i];
+            newAlphabet += password[i];
         }
     }
-    return newPassword;
+    return newAlphabet;
 }
 
 
 export function removeBadChars(password: string): string {
-    let newPassword = '';
+    let newAlphabet = '';
     for (let i = 0; i < password.length; i++) {
         if (!BAD_CHARS.includes(password[i])) {
-            newPassword += password[i];
+            newAlphabet += password[i];
         }
     }
-    return newPassword;
+    return newAlphabet;
 }
+
+
+export function removeAvoideCahrs(password: string, avoidedChars: string): string {
+    let newAlphabet = '';
+    for (let i = 0; i < password.length; i++) {
+        if (!avoidedChars.includes(password[i])) {
+            newAlphabet += password[i];
+        }
+    }
+    return newAlphabet;
+}
+

@@ -1,0 +1,16 @@
+.alphabet-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.letter {
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+}

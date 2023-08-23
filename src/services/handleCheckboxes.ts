@@ -46,3 +46,10 @@ export const handleDoubtful = (
 ): void => {
     setDoubtful(!currentStatus);
 }
+
+export const handleAvoidedChars = (
+    setAvoidedChars: (newChars: string) => void,
+    currentChars: string
+): void => {
+    setAvoidedChars(currentChars);
+}

@@ -34,4 +34,8 @@ export interface NavigationMenuProps {
     doubtful: boolean,
     setDoubtful: (currentStatus: boolean) => void,
     handleDoubtful: (setDoubtful:  (currentStatus: boolean) => void, doubtful: boolean) => void,
+
+    avoidedChars: string,
+    setAvoidedChars: (currentChars: string) => void,
+    handleAvoidedChars: (setAvoidedChars:  (currentChars: string) => void, avoidedChars: string) => void,
 }
