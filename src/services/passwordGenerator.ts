@@ -132,7 +132,8 @@ export function getAlphabet(options: PasswordOptionsProps): string {
         alphabet = removeAvoideCahrs(alphabet, options.avoidedChars);
     }
     
-
+    console.log("alphabet: ", alphabet);
+    console.log("avoidedChars: ", options.avoidedChars);
     return alphabet;
 }
 

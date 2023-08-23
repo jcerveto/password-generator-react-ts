@@ -1,46 +1,31 @@
-import { AlphabetProps} from '../model/AlphabetProps'
+import { useMemo } from 'react';
 
-import { getAlphabetTable } from '../services/alphabetUtils'
+import { AlphabetProps } from '../model/AlphabetProps'
 
 import '../styles/Alphabet.css'
 
-export const Alhabet = (
+
+export const Alphabet = (
     { props }: { props: AlphabetProps }
 ) => {
+    // Utiliza useMemo para memorizar la lista de letras renderizadas
+    const renderedLetters = useMemo(() => {
+        return props.letters.map((letter, index) => {
+            return (
+                <span
+                    className={`letter ${! letter.getIsAvoided() ? 'marked' : ''}`}
+                    key={index}
+                    onClick={() => props.handleLetters(props.setLetters, props.letters, letter)}
+                >
+                    {letter.getLetter()}
+                </span>
+            )
+        });
+    }, [props.letters]); // La dependencia es props.letters
 
-``
     return (
-        <div>
-            {
-                getAlphabetTable(props.characters).map((row, index) => (
-                    <section key={index}>
-                        {
-                            row.map((char, index) => (
-                                <label key={index}>{char}</label>
-                            ))
-                        }
-                    </section>
-                ))
-            }
-            ESPACIO
-            <br />
-            <div className='alphabet-container'>
-                {
-                    props.characters
-                        .split('')
-                        .map((char, index) => {
-                            return (
-                                <label 
-                                    className='letter'
-                                    key={index}
-                                >
-                                    {char}
-                                </label>
-                            )
-                        })
-                }
-            </div>
-
+        <div className='alphabet-container'>
+            {renderedLetters}
         </div>
     )
 }

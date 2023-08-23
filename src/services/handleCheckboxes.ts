@@ -1,3 +1,6 @@
+import { Letter } from "../model/Letter";
+
+
 export const handleUppercase = (
     setUppercase: (_currentStatus: boolean) => void, 
     currentStatus: boolean
@@ -52,4 +55,35 @@ export const handleAvoidedChars = (
     currentChars: string
 ): void => {
     setAvoidedChars(currentChars);
+}
+
+export const handleMarkedLetters = (
+    setMarkedLetters: (newMarkedLetters: Array<string>) => void,
+    markedLetters: Array<string>,
+    letter: string,
+): void => {
+    console.log("letter: ", letter, " markedLetters: ", markedLetters);
+    if (markedLetters.includes(letter)) {
+        setMarkedLetters(markedLetters.filter((markedLetter) => markedLetter !== letter));
+    } else {
+        setMarkedLetters([...markedLetters, letter]);
+    }
+
+}
+
+export const handleLetters = (
+    setLetters: (newLetters: Array<Letter>) => void,
+    letters: Array<Letter>,
+    letter: Letter,
+): void => {
+    if (letters.includes(letter)) {
+        setLetters(
+            letters.map((currentLetter) => {
+                if (currentLetter.equals(letter)) {
+                    currentLetter.setIsAvoided(!currentLetter.getIsAvoided());
+                }
+                return currentLetter;
+            })
+        );
+    }
 }

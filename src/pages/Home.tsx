@@ -4,11 +4,12 @@ import '../styles/Home.css';
 
 import { NavigationMenu } from "../components/NavigationMenu";
 import { Error } from "../components/Error";
-import { Alhabet } from '../components/Alphabet';
+import { Alphabet } from '../components/Alphabet';
 
 import { NavigationMenuProps } from "../model/NavigationMenuProps";
 import { PasswordOptionsProps } from "../model/PasswordOptionsProps";
 import { AlphabetProps } from '../model/AlphabetProps';
+import { Letter } from '../model/Letter';
 
 import * as Handles from "../services/handleCheckboxes";
 import * as Password from "../services/passwordGenerator";
@@ -27,6 +28,15 @@ export const Home = () => {
     const [avoidedChars, setAvoidedChars] = useState<string>("");
     const [error, setError] = useState<string|null>(null);
     const justCopiedToClipboard = useRef<boolean>(false);
+    const [letters, setLetters] = useState<Letter[]>(
+        Alphabets
+            .getAll()
+            .split('')
+            .map((singleLetter: string) => {
+                return new Letter(singleLetter, false);
+        })
+
+    )
     const [passwordOptionsProps, setPasswordOptionsProps] = useState<PasswordOptionsProps>({
         length: 12,
         uppercase: true,
@@ -106,6 +116,10 @@ export const Home = () => {
 
     const alphabetProps: AlphabetProps = {
         characters: Alphabets.getAll(),
+
+        letters: letters,
+        setLetters: setLetters,
+        handleLetters: Handles.handleLetters,
     }
 
     useEffect(() => {
@@ -126,7 +140,7 @@ export const Home = () => {
             symbols: symbols,
             bad: bads,
             doubtful: doubtfuls,
-            avoidedChars: '',
+            avoidedChars: Letter.getAvoidedChar(letters),
         };
 
         if (! anyPropMarked(newProps)) {
@@ -139,8 +153,7 @@ export const Home = () => {
             setPasswordOptionsProps(newProps);
         }
 
-
-    }, [lowercase, uppercase, numbers, symbols, passwordLength, bads, doubtfuls])
+    }, [lowercase, uppercase, numbers, symbols, passwordLength, bads, doubtfuls, letters])
 
 
     return (
@@ -159,7 +172,7 @@ export const Home = () => {
                 props={navigationMenuProps}
             />
 
-            <Alhabet 
+            <Alphabet 
                 props={alphabetProps}
             />
         </>

@@ -14,3 +14,18 @@
     justify-content: center;
     align-items: center;
 }
+
+/* Estilos para letras marcadas */
+.letter.marked {
+    background-color: #6db65b; /* Color de fondo para letras marcadas */
+    color: white; /* Color de texto para letras marcadas */
+    border: 1px solid #6db65b; /* Borde para letras marcadas */
+}
+
+/* Estilos para letras no marcadas */
+.letter:not(.marked) {
+    background-color: #e21313; /* Color de fondo para letras no marcadas */
+    color: white; /* Color de texto para letras no marcadas */
+    border: 1px solid #e21313; /* Borde para letras no marcadas */
+}
+
