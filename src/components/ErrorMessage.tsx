@@ -1,4 +1,4 @@
-export const Error = (
+export const ErrorMessage = (
     { message }: { message: string | null | undefined }
 ) => {
     return (

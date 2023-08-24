@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import '../styles/Home.css';
 
 import { NavigationMenu } from "../components/NavigationMenu";
-import { Error } from "../components/Error";
+import { ErrorMessage } from "../components/ErrorMessage";
 import { Alphabet } from '../components/Alphabet';
 
 import { NavigationMenuProps } from "../model/NavigationMenuProps";
@@ -165,7 +165,7 @@ export const Home = () => {
                 </label>
             </header>
 
-            <Error 
+            <ErrorMessage 
                 message={error}
             />
             <NavigationMenu 

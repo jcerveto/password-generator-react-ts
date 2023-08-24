@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react"
+import { useState } from "react"
 
 import { NavigationMenuProps } from "../model/NavigationMenuProps"
 
@@ -10,7 +10,7 @@ export const NavigationMenu = ( { props }: { props: NavigationMenuProps } ) => {
         setShowCopyToClipboardMessage(true);
         setTimeout(() => {
             setShowCopyToClipboardMessage(false);
-        }, 2000);
+        }, 10_000);
     }
 
     return (
