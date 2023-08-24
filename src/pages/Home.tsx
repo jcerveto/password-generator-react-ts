@@ -109,7 +109,7 @@ export const Home = () => {
         setDoubtful: setDoubtfuls,
         handleDoubtful: Handles.handleDoubtful,
 
-        avoidedChars: '',
+        avoidedChars: avoidedChars,
         setAvoidedChars: setAvoidedChars,
         handleAvoidedChars: Handles.handleAvoidedChars,
     };

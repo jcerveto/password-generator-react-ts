@@ -1,6 +1,17 @@
+import { useEffect, useState, useRef } from "react"
+
 import { NavigationMenuProps } from "../model/NavigationMenuProps"
 
 export const NavigationMenu = ( { props }: { props: NavigationMenuProps } ) => {    
+    const [showCopyToClipboardMessage, setShowCopyToClipboardMessage] = useState<boolean>(false);
+
+    const handleCopyToClipboard = () => {
+        props.copyToClipboard();
+        setShowCopyToClipboardMessage(true);
+        setTimeout(() => {
+            setShowCopyToClipboardMessage(false);
+        }, 2000);
+    }
 
     return (
         <nav>
@@ -82,10 +93,11 @@ export const NavigationMenu = ( { props }: { props: NavigationMenuProps } ) => {
                 </label>
             </section>
             <button
-                onClick={props.copyToClipboard}
+                onClick={handleCopyToClipboard}
             >
                 Copy Password
             </button>
+            { showCopyToClipboardMessage ? <span>Copied to clipboard</span> : null}
         </nav>
     )
 }
