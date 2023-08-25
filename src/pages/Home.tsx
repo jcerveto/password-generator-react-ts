@@ -5,6 +5,7 @@ import '../styles/Home.css';
 import { NavigationMenu } from "../components/NavigationMenu";
 import { ErrorMessage } from "../components/ErrorMessage";
 import { Alphabet } from '../components/Alphabet';
+import { Password as PasswordComponent } from '../components/Password';
 
 import { NavigationMenuProps } from "../model/NavigationMenuProps";
 import { PasswordOptionsProps } from "../model/PasswordOptionsProps";
@@ -14,9 +15,26 @@ import { Letter } from '../model/Letter';
 import * as Handles from "../services/handleCheckboxes";
 import * as Password from "../services/passwordGenerator";
 import * as Alphabets from "../services/Alphabets";
+import { PasswordProps } from '../model/PasswordProps';
 
 
 export const Home = () => {
+    const refreshPassword = () => {
+        setPassword(Password.generatePassword(passwordOptionsProps));
+    }
+
+    const copyToClipboard = () => {
+        try {
+            navigator.clipboard.writeText(password);
+        }
+        catch (error) {
+            setTimeout(() => {
+                setError("Error copying to clipboard");
+            }, 2000);
+            setError(null);
+        }
+    }
+    
     const [password, setPassword] = useState<string>("");
     const [passwordLength, setPasswordLength] = useState<number>(12);
     const [uppercase, setUppercase] = useState<boolean>(true);
@@ -37,6 +55,12 @@ export const Home = () => {
         })
 
     )
+    const [passwordProps, setPasswordProps] = useState<PasswordProps>({
+        password: password,
+        refreshFunction: refreshPassword,
+        copyToClipboardFunction: copyToClipboard,
+    });
+
     const [passwordOptionsProps, setPasswordOptionsProps] = useState<PasswordOptionsProps>({
         length: 12,
         uppercase: true,
@@ -58,21 +82,7 @@ export const Home = () => {
         );
     }
 
-    const refreshPassword = () => {
-        setPassword(Password.generatePassword(passwordOptionsProps));
-    }
 
-    const copyToClipboard = () => {
-        try {
-            navigator.clipboard.writeText(password);
-        }
-        catch (error) {
-            setTimeout(() => {
-                setError("Error copying to clipboard");
-            }, 2000);
-            setError(null);
-        }
-    }
 
     const navigationMenuProps: NavigationMenuProps = {
         refresh: refreshPassword,
@@ -155,15 +165,23 @@ export const Home = () => {
 
     }, [lowercase, uppercase, numbers, symbols, passwordLength, bads, doubtfuls, letters])
 
+    useEffect(() => {
+        setPasswordProps({
+            password: password,
+            refreshFunction: refreshPassword,
+            copyToClipboardFunction: copyToClipboard,
+        });
+    }, [password])
 
     return (
         <>
-            <h1>Password Generator</h1>
             <header>
-                <label>
-                    {password}
-                </label>
+                Password Generator
             </header>
+
+            <PasswordComponent
+                props={passwordProps}
+            />
 
             <ErrorMessage 
                 message={error}

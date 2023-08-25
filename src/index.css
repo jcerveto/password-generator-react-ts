@@ -7,11 +7,6 @@
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
 }
 
 a {
@@ -26,7 +21,6 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -66,4 +60,12 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.button-with-image {
+  background-size: contain; /* La imagen se ajusta para mantener las proporciones */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  background-position: center; /* Centra la imagen en el botón */
+  border: none;
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */  
 }

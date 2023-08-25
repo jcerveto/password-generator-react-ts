@@ -1,16 +1,48 @@
-@keyframes shakeAnimation {
-0%, 100% {
-    transform: translateX(0);
-}
-10%, 30%, 50%, 70%, 90% {
-    transform: translateX(-10px);
-}
-20%, 40%, 60%, 80% {
-    transform: translateX(10px);
-}
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 15vh;
+    font-size: 250%;
+    font-weight: bold;
+    background-color: rgb(250, 215, 215);
 }
 
-.shake {
-animation: shakeAnimation 0.5s ease-in-out;
-animation-fill-mode: both;
+.password-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 20vh;
+    background-color: green;
+}
+
+.password {
+    flex: 65%;
+    font-size: 100%;
+    background-color: red;
+}
+
+.password-utils-container {
+
+    flex: 35%;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    justify-content: right;
+    height: 20vh;
+    background-color: blue;
+}
+
+.password-utils-container button {
+    align-items: right;
+    margin-right: 5%;
+    margin-top: 5%;
+    margin-left: 10%;
+    margin-bottom: 10%;
+
+    width: 30%;
+}
+
+.copy-message {
 }
