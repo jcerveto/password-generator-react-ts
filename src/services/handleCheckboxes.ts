@@ -1,5 +1,6 @@
 import { Letter } from "../model/Letter";
 
+import * as Measures from "./Measures"
 
 export const handleUppercase = (
     setUppercase: (_currentStatus: boolean) => void, 
@@ -33,6 +34,10 @@ export const handleLength = (
     setLength: (_currentLength: number) => void,
     currentLength: number
 ): void => {
+    if (currentLength < Measures.MIN_LENGTH || currentLength > Measures.MAX_LENGTH) {
+        return;
+    }
+
     setLength(currentLength);
 }
 
@@ -62,7 +67,6 @@ export const handleMarkedLetters = (
     markedLetters: Array<string>,
     letter: string,
 ): void => {
-    console.log("letter: ", letter, " markedLetters: ", markedLetters);
     if (markedLetters.includes(letter)) {
         setMarkedLetters(markedLetters.filter((markedLetter) => markedLetter !== letter));
     } else {

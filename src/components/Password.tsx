@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import "../styles/Password.css";
+
 import { PasswordProps } from "../model/PasswordProps";
 
 export const Password = (
@@ -23,17 +25,19 @@ export const Password = (
                 {props.password}
             </span>
             <aside className="password-utils-container">
-                <span>
+                <span className="copy-container">
                     <button
                         className="button-with-image"
                         onClick={handleCopyToClipboard}
-                        style={{ backgroundImage: `url(${'public/images/copy.jpg'})` }}
+                        style={{ backgroundImage: `url(${'images/copy.jpg'})` }}
                         
                     >
                     </button>
-                    <span>
-                        <span>Copy</span>
-                        <p>
+                    <div>
+                        <span>
+                            Copy
+                        </span>
+                        <span>
                             { showCopyToClipboardMessage 
                                 ? 
                                     <span
@@ -43,16 +47,16 @@ export const Password = (
                                     </span> 
                                 :   null
                                 }
-                        </p>
-                    </span>
+                        </span>
+                    </div>
 
                 </span>
 
-                <span>
+                <span className="refresh-container">
                     <button 
                         className="button-with-image"
                         onClick={props.refreshFunction} 
-                        style={{ backgroundImage: `url(${'public/images/refresh.png'})` }}
+                        style={{ backgroundImage: `url(${'images/refresh.png'})` }}
                     >
                     </button>
                     <span>Refresh</span>
