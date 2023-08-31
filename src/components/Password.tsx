@@ -29,6 +29,7 @@ export const Password = (
                     <button
                         className="button-with-image"
                         onClick={handleCopyToClipboard}
+                        /** TODO: Dejar la ruta en html. Utilizar un svg, no una imagen normal */
                         style={{ backgroundImage: `url(${'images/copy.jpg'})` }}
                         
                     >
@@ -55,6 +56,7 @@ export const Password = (
                 <span className="refresh-container">
                     <button 
                         className="button-with-image"
+                        /** TODO: Dejar la ruta en html. Utilizar un svg, no una imagen normal */
                         onClick={props.refreshFunction} 
                         style={{ backgroundImage: `url(${'images/refresh.png'})` }}
                     >

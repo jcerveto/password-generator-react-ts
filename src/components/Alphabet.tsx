@@ -25,7 +25,18 @@ export const Alphabet = (
 
     return (
         <div className='alphabet-container'>
-            {renderedLetters}
+            <section>
+                <div className='alphabet-title'>
+                    Available letters:
+                </div>
+                <div className='alphabet-description'>
+                    Press a letter to select or unselect available letters.
+                </div>
+            </section>
+
+            <div className='letter-container'>
+                {renderedLetters}
+            </div>
         </div>
     )
 }

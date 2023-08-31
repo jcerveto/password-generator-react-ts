@@ -3,11 +3,15 @@
     flex-direction: column;
 
     background-color: aquamarine;
+    padding: 2%;
+    margin-bottom: 5%;
 }
 .navigationMenu-container-header {
     justify-content: center;
     align-items: center;
     font-size: 2rem;
+
+    margin-bottom: 5%;
   
 }
 
@@ -42,7 +46,7 @@
 .navigationMenu-length[type="number"]::-webkit-inner-spin-button,
 .navigationMenu-length[type="number"]::-webkit-outer-spin-button {
   margin: 0;
-  width: 500px; /* Ancho de las flechas */
+  width: 10rem; /* Ancho de las flechas */
   height: 5rem; /* Altura de las flechas */
   color: #007bff; /* Color de las flechas */
   font-size: 15px; /* Tamaño de la fuente de las flechas */
@@ -67,6 +71,8 @@
 .navigationMenu-option {
     display: flex;
     flex-direction: column;
+
+    padding: 1rem;
 
     background-color: yellow;
 }
