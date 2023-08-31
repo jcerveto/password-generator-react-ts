@@ -35,10 +35,8 @@ export const Password = (
                         <button
                             className="button-with-image"
                             onClick={handleCopyToClipboard}
-                            /** TODO: Dejar la ruta en html. Utilizar un svg, no una imagen normal */
-                            style={{ backgroundImage: `url(${'images/copy.jpg'})` }}
-                            
                         >
+                            <img src="images/copy.svg" alt="Copy" className="buttons-images" />
                         </button>
                         <div>
                             <span>
@@ -50,7 +48,7 @@ export const Password = (
                                         <span
                                             className="copy-message"
                                         >
-                                            Copied to clipboard
+                                            <i>Copied to clipboard</i>
                                         </span> 
                                     :   null
                                     }
@@ -62,10 +60,9 @@ export const Password = (
                     <span className="refresh-container">
                         <button 
                             className="button-with-image"
-                            /** TODO: Dejar la ruta en html. Utilizar un svg, no una imagen normal */
-                            onClick={props.refreshFunction} 
-                            style={{ backgroundImage: `url(${'images/refresh.png'})` }}
+                            onClick={props.refreshFunction}
                         >
+                            <img src="images/refresh.svg" alt="Copy" className="buttons-images" />
                         </button>
                         <span>Refresh</span>
                     </span>
