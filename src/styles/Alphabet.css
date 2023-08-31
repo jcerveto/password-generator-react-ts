@@ -4,7 +4,7 @@
     justify-content: center;
     align-items: center;
 
-    background-color: gray;
+    background-color: #91C8E4;
     padding: 5%;
 }
 
@@ -15,6 +15,8 @@
     font-size: 2rem;
 
     margin-bottom: 5%;
+    padding: 3%;
+    background-color: #4682A9;
 }
 
 .alphabet-description {
@@ -24,6 +26,8 @@
     font-size: 1.5rem;
 
     margin-bottom: 5%;
+    background-color: #749BC2;
+    padding: 5%;
 }
 
 .letter-container {

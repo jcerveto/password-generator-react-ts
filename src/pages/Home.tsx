@@ -176,10 +176,6 @@ export const Home = () => {
 
     return (
         <>
-            <header>
-                Password Generator
-            </header>
-
             <PasswordComponent
                 props={passwordProps}
             />

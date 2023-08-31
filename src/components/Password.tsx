@@ -20,52 +20,59 @@ export const Password = (
 
 
     return (
-        <section className="password-container">
-            <span className="password">
-                {props.password}
-            </span>
-            <aside className="password-utils-container">
-                <span className="copy-container">
-                    <button
-                        className="button-with-image"
-                        onClick={handleCopyToClipboard}
-                        /** TODO: Dejar la ruta en html. Utilizar un svg, no una imagen normal */
-                        style={{ backgroundImage: `url(${'images/copy.jpg'})` }}
-                        
-                    >
-                    </button>
-                    <div>
-                        <span>
-                            Copy
-                        </span>
-                        <span>
-                            { showCopyToClipboardMessage 
-                                ? 
-                                    <span
-                                        className="copy-message"
-                                    >
-                                        Copied to clipboard
-                                    </span> 
-                                :   null
-                                }
-                        </span>
-                    </div>
+        <div id="main-password">
+            <header>
+                Password Generator
+            </header>
 
+
+            <section className="password-container" >
+                <span className="password">
+                    {props.password}
                 </span>
+                <aside className="password-utils-container">
+                    <span className="copy-container">
+                        <button
+                            className="button-with-image"
+                            onClick={handleCopyToClipboard}
+                            /** TODO: Dejar la ruta en html. Utilizar un svg, no una imagen normal */
+                            style={{ backgroundImage: `url(${'images/copy.jpg'})` }}
+                            
+                        >
+                        </button>
+                        <div>
+                            <span>
+                                Copy
+                            </span>
+                            <span>
+                                { showCopyToClipboardMessage 
+                                    ? 
+                                        <span
+                                            className="copy-message"
+                                        >
+                                            Copied to clipboard
+                                        </span> 
+                                    :   null
+                                    }
+                            </span>
+                        </div>
 
-                <span className="refresh-container">
-                    <button 
-                        className="button-with-image"
-                        /** TODO: Dejar la ruta en html. Utilizar un svg, no una imagen normal */
-                        onClick={props.refreshFunction} 
-                        style={{ backgroundImage: `url(${'images/refresh.png'})` }}
-                    >
-                    </button>
-                    <span>Refresh</span>
-                </span>
+                    </span>
 
-            </aside>
+                    <span className="refresh-container">
+                        <button 
+                            className="button-with-image"
+                            /** TODO: Dejar la ruta en html. Utilizar un svg, no una imagen normal */
+                            onClick={props.refreshFunction} 
+                            style={{ backgroundImage: `url(${'images/refresh.png'})` }}
+                        >
+                        </button>
+                        <span>Refresh</span>
+                    </span>
 
-        </section>
+                </aside>
+
+            </section>
+        </div>
     )
 }

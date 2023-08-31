@@ -1,69 +1,76 @@
 .navigationMenu-container {
     display: flex;
     flex-direction: column;
-
-    background-color: aquamarine;
+    background-color: #91C8E4;
     padding: 2%;
+    margin-top: 31%;
     margin-bottom: 5%;
+    border-radius: 10px;
 }
+
 .navigationMenu-container-header {
     justify-content: center;
     align-items: center;
     font-size: 2rem;
-
     margin-bottom: 5%;
-  
 }
 
 .navigationMenu-options-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-
-    background-color: orange;
+    background-color: #749BC2;
+    border-radius: 10px;
+    margin-top: 1rem; /* Espacio entre containers */
 }
 
 .navigationMenu-length-container {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 5%;
+    margin-bottom: 1rem;
 }
+
 .navigationMenu-length-container label {
     flex: 20%;
     margin: 0;
     font-size: 1.5rem;
     font-style: normal;
 }
+
 .navigationMenu-length[type="number"] {
     flex: 10%;
     align-items: center;
     margin: 0 1rem;
-
     border-radius: 5%;
     font-size: 2rem;
     height: 5rem;
+    border: 0.2rem solid #4682A9;
+    padding: 0.2rem 0.5rem;
 }
+
 .navigationMenu-length[type="number"]::-webkit-inner-spin-button,
 .navigationMenu-length[type="number"]::-webkit-outer-spin-button {
-  margin: 0;
-  width: 10rem; /* Ancho de las flechas */
-  height: 5rem; /* Altura de las flechas */
-  color: #007bff; /* Color de las flechas */
-  font-size: 15px; /* Tamaño de la fuente de las flechas */
+    margin: 0;
+    width: 10rem; /* Ancho de las flechas */
+    height: 5rem; /* Altura de las flechas */
+    color: #4682A9; /* Color de las flechas */
+    font-size: 15px; /* Tamaño de la fuente de las flechas */
 }
+
 .navigationMenu-length[type="range"] {
     flex: 60%;
     margin-right: 5%;
+    color: #4682A9;
 }
-
-
 
 .navigationMenu-options-container section {
     flex: 70%;
 }
+
 .navigationMenu-options-container aside {
     flex: 30%;
-
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
@@ -71,31 +78,33 @@
 .navigationMenu-option {
     display: flex;
     flex-direction: column;
-
     padding: 1rem;
-
-    background-color: yellow;
+    background-color: #749BC2;
+    border-radius: 10px;
+    border: 0.3rem solid #4682A9; /* Borde */
+    margin: 1rem;
 }
+
 .navigationMenu-option input {
-    height: 2rem; 
+    height: 2rem;
     cursor: pointer;
 }
 
 .navigationMenu-footer-container {
     display: flex;
-
-    margin-left: 38%;
+    margin-left: 30%;
     gap: 1rem;
     flex-direction: row;
     justify-content: left;
     align-items: center;
-
     height: 10vh;
-
-    background-color: red;
+    padding: 3%;
+    border-radius: 10px;
 }
+
 .navigationMenu-footer-confirmationMessage {
     align-items: right;
-
     background-color: green;
+    border-radius: 10px;
+    padding: 0.5rem;
 }

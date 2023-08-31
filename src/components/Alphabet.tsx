@@ -26,9 +26,9 @@ export const Alphabet = (
     return (
         <div className='alphabet-container'>
             <section>
-                <div className='alphabet-title'>
+                <header className='alphabet-title'>
                     Available letters:
-                </div>
+                </header>
                 <div className='alphabet-description'>
                     Press a letter to select or unselect available letters.
                 </div>
