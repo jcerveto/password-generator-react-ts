@@ -6,6 +6,7 @@ import { NavigationMenu } from "../components/NavigationMenu";
 import { ErrorMessage } from "../components/ErrorMessage";
 import { Alphabet } from '../components/Alphabet';
 import { Password as PasswordComponent } from '../components/Password';
+import { FooterInformation } from '../components/FooterInformation';
 
 import { NavigationMenuProps } from "../model/NavigationMenuProps";
 import { PasswordOptionsProps } from "../model/PasswordOptionsProps";
@@ -193,6 +194,8 @@ export const Home = () => {
             <Alphabet 
                 props={alphabetProps}
             />
+
+            <FooterInformation />
         </>
     );
 };
